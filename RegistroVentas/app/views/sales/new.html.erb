@@ -1,0 +1,52 @@
+<h1>Sales#new</h1>
+<p>Find me in app/views/sales/new.html.erb</p>
+
+
+<%= form_with model: @sale, local: true  do |form| %>
+
+
+<div class="field">
+ <table>
+  <tr>
+  
+   <td> <%= form.label :cod %> </td>
+   <td> <%=form.number_field :cod %></td>
+</tr>
+<tr>
+   <td> <%= form.label :detail %> </td>
+   <td> <%=form.text_area :detail %></td>
+   </tr>
+  <tr>
+    <td> <%= form.label :category %> </td>
+    <td>  <%=form.text_field :category %></td>
+ </tr>
+<tr>
+   <td> <%= form.label :value %> </td>
+   <td>  <%=form.number_field :value %></td>
+</tr>
+ <tr>
+   <td> <%= form.label :discount %> </td>
+   <td> <%=form.number_field :discount %></td>
+</tr>
+ <tr>
+    <td> Exento de IVA </td>
+    <td> <%=form.check_box :checkedIva %></td>
+ </tr>
+ <!-- <tr>
+    <td> <%= form.label(:tax)%> </td>
+    <td> <%=form.number_field :tax %></td>
+</tr>
+ <tr>
+    <td><%= form.label(:total)%> </td>
+    <td><%=form.number_field :total %></td>
+</tr> -->
+ </table>
+
+ </div>
+
+
+
+<div class="actions">
+    <%= form.submit %>
+</div>
+<% end %>
