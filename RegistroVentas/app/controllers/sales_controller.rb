@@ -8,23 +8,20 @@ class SalesController < ApplicationController
 
   def create
    
-    
+   
     @sale = Sale.new(sale_params)
-    # value = params[:value].to_i
-    # discount = params[:discount].to_i
-    # execto = params[:checkedIva].to_i
+    execto = params[:checkedIva].to_i
+  
+    @sale.value  = (  @sale.value  -  (  @sale.value  * @sale.discount) /100)
   
 
-    # value = (  value  -  (  value  * discount) /100)
-  
-
-    # if execto == 1
-    #   tax = 19
-    # else
-    #   tax = 0
-    # end
-    # total = ( value - ( value * tax)/100 )
-    # @sale.total = total
+   if execto == 0
+    @sale.tax = 0
+   else
+    @sale.tax = 19
+     end
+     @sale.total = ( @sale.value - ( @sale.value * @sale.tax)/100 )
+    
     
   
 
@@ -42,7 +39,7 @@ class SalesController < ApplicationController
 
    
    private def sale_params
-     params.permit(:cod,:detail,:category,:value,:discount,:checkedIva)
+     params.require(:sale).permit(:cod,:detail,:category,:value,:discount)
 
    end
 end
