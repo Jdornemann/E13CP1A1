@@ -1,6 +1,10 @@
 class SalesController < ApplicationController
 
 
+
+  def done 
+    @sale = Sale.all
+  end
   def new
 
     @sale = Sale.new
@@ -10,11 +14,12 @@ class SalesController < ApplicationController
    
    
     @sale = Sale.new(sale_params)
-    execto = params[:checkedIva].to_i
+    execto = @sale.tax
+    
   
     @sale.value  = (  @sale.value  -  (  @sale.value  * @sale.discount) /100)
   
-
+  # byebug
    if execto == 0
     @sale.tax = 0
    else
@@ -39,7 +44,7 @@ class SalesController < ApplicationController
 
    
    private def sale_params
-     params.require(:sale).permit(:cod,:detail,:category,:value,:discount)
+     params.require(:sale).permit(:cod,:detail,:category,:value,:discount,:tax)
 
    end
 end

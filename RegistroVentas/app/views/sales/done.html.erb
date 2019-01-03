@@ -1,0 +1,52 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<h1> Done! - El registro fue almacenado con éxito! </h1>
+<%= link_to 'Back', sales_new_path %>
+<table class="table  table-dark table-hover">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Detail</th>
+        <th>Category</th>
+        <th>Value</th>
+        <th>discount</th>
+        <th>tax</th>
+        <th>total</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @sale.each do |single| %>
+        <tr>
+          <td><%= single.cod %></td>
+          <td><%= single.detail %></td>
+          <td><%= single.category %></td>
+          <td><%= single.value %></td>
+          <td><%= single.discount %></td>
+          <td><%= single.tax %></td>
+          <td><%= single.total %></td>
+         
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+    
+</body>
+</html>
+
+
+

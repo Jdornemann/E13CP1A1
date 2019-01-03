@@ -1,6 +1,6 @@
 class Sale < ApplicationRecord
-
-# validates :cod, uniqueness: true
+  
+ validates :cod, uniqueness: true
 # validates :detail, presence: true
 # validates :category, inclusion: { in: %w(uno dos tres cuatro cinco),
 #     message: "%{category} is not valid" }, allow_nil: true
